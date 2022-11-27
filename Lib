@@ -4717,8 +4717,6 @@ function library:init()
             objects = {};
             text = {
                 {self.Title, true},
-		{self.Domain, true},
-		{self.Game, true},
                 {localplayer.Name, false},
                 {localplayer.DisplayName, false},
                 {'0 fps', true},
