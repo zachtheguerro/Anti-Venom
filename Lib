@@ -2145,7 +2145,7 @@ function library:init()
             function tab:AddSection(text, side, order)
                 local section = {
                     text = tostring(text);
-                    side = side == nil and 1 or clamp(side,1,2,3);
+                    side = side == nil and 1 or clamp(side,1,2);
                     order = order or #self.sections+1;
                     enabled = true;
                     objects = {};
