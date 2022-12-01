@@ -1485,6 +1485,13 @@ function library:init()
                 Parent = objs.groupBackground;
             })
 
+            objs.columnholder3 = utility:Draw('Square', {
+                Size = newUDim2(.48, 0, .96, 0);
+                Position = newUDim2(2 - (.48 + .01), 0, .02, 0);--newUDim2(1 - (.48 + .01), 0, .02, 0);
+                Transparency = 0;
+                ZIndex = z+6;
+                Parent = objs.groupBackground;
+            })
 
             objs.dragdetector = utility:Draw('Square',{
                 Size = newUDim2(1,0,1,0);
@@ -2138,7 +2145,7 @@ function library:init()
             function tab:AddSection(text, side, order)
                 local section = {
                     text = tostring(text);
-                    side = side == nil and 1 or clamp(side,1,2);
+                    side = side == nil and 1 or clamp(side,1,2,3);
                     order = order or #self.sections+1;
                     enabled = true;
                     objects = {};
