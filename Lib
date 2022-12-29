@@ -4866,13 +4866,14 @@ function library:CreateSettingsTab(menu)
 
     local settings = menu:AddTab("Settings"); do 
         local theme_section = settings:AddSection("Theme", 1); do
-            local theme_strings = {};
+            local theme_strings = {"Custom"};
             for _, v in next, library.themes do
                 table.insert(theme_strings, v.name);
             end;
             local setByPreset = false;
 
             theme_section:AddList({text = "Themes", flag = "preset_theme", values = theme_strings, callback = function(new_theme)
+                if new_theme == "Custom" then return end
                 setByPreset = true
                 for _,v in next, library.themes do
                     if v.name == new_theme then
@@ -4893,7 +4894,7 @@ function library:CreateSettingsTab(menu)
                     library.theme[i] = c3;
                     library:SetTheme(library.theme);
                     if not setByPreset and not setByConfig then 
-                        library.options.preset_theme:Select("Default");
+                        library.options.preset_theme:Select("Custom");
                     end;
                 end});
             end;
